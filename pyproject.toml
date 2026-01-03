@@ -1,0 +1,21 @@
+[project]
+name = "hn-signals"
+version = "0.1.0"
+description = "Extract actionable insights, pain points, and trends from Hacker News discussions"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "httpx>=0.28.1",
+    "loguru>=0.7.3",
+    "openai>=1.0",
+    "sqlite-utils>=3.35",
+    "pydantic>=2.0",
+    "jinja2>=3.0",
+    "pyyaml>=6.0",
+    "rich>=13.0",
+    "aiosqlite>=0.19.0",
+    "dotenv>=0.9.9",
+]
+
+[project.scripts]
+hn-insights = "main:cli"

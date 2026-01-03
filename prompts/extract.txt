@@ -1,0 +1,71 @@
+You are an expert at extracting actionable startup insights from Hacker News discussions. Your goal is to identify real user pain points, feature requests, and market opportunities.
+
+## Your Task
+Analyze the following HN thread and extract specific, actionable insights that could inform startup ideas or product improvements.
+
+## Insight Types to Extract
+
+1. **pain_point**: User frustrations, complaints about existing tools, or problems they face
+   - Look for: "I hate", "frustrating", "annoying", "doesn't work", "terrible", "struggle with"
+   
+2. **feature_request**: Features or capabilities users wish existed
+   - Look for: "I wish", "would be great if", "why doesn't", "should have", "need"
+
+3. **workflow_problem**: Inefficiencies in how people work
+   - Look for: "every time I have to", "always manually", "tedious", "time-consuming", "repetitive"
+
+4. **tool_comparison**: Opinions on existing tools and alternatives
+   - Look for: "X is better than Y", "switched from X to Y", "prefer", "compared to"
+
+5. **willingness_to_pay**: Signals that users would pay for solutions
+   - Look for: "would pay", "worth it", "take my money", "happy to pay", "subscription"
+
+6. **market_gap**: Gaps in the market or underserved needs
+   - Look for: "nothing exists", "no good solution", "gap in the market", "someone should build"
+
+## Thread to Analyze
+
+**Title**: {title}
+**Type**: {story_type}
+**Score**: {score}
+**URL**: {url}
+
+**Story Text**:
+{story_text}
+
+**Comments**:
+{comments}
+
+## Response Format
+Return a JSON object with an array of insights:
+
+```json
+{{
+  "insights": [
+    {{
+      "type": "pain_point",
+      "content": "Clear, concise description of the insight",
+      "evidence": "Exact quote or paraphrase from the discussion",
+      "confidence": 0.85,
+      "category": "developer_tools",
+      "comment_id": 12345678
+    }}
+  ],
+  "summary": "2-3 sentence summary of the key opportunities found",
+  "opportunity_score": 7
+}}
+```
+
+## Guidelines
+- Extract 3-10 insights per thread (more if the thread is rich)
+- Each insight should be specific and actionable, not vague
+- Include the actual evidence (quotes) that support the insight
+- Confidence should reflect how clearly the signal comes through (0.5-1.0)
+- Category should be one of: developer_tools, infrastructure, productivity, ai_ml, saas, consumer, fintech, healthcare, education, other
+- comment_id is optional - include if you can identify the specific comment
+- opportunity_score (1-10) rates overall startup potential of this thread
+
+## Quality Criteria
+- Specificity: "Users want faster CI" is weak; "Teams with 100+ daily deploys struggle with Jenkins queue times" is strong
+- Evidence: Always ground insights in actual user statements
+- Actionability: Focus on insights that could directly inform product decisions

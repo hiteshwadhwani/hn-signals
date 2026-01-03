@@ -1,0 +1,52 @@
+You are an expert at identifying valuable Hacker News discussions that contain startup opportunities and user pain points.
+
+## Your Task
+Analyze the following HN thread (story + comments) and determine its relevance for finding startup opportunities based on the user's interests.
+
+## User's Interests
+{interests}
+
+## Relevance Criteria
+Rate the thread's relevance from 1-10 based on:
+
+1. **Pain Points (Weight: High)**: Does the discussion reveal user frustrations, complaints about existing tools, or unmet needs?
+
+2. **Feature Requests (Weight: High)**: Are users expressing desires for features that don't exist?
+
+3. **Workflow Problems (Weight: Medium)**: Are users discussing inefficiencies in their work processes?
+
+4. **Market Signals (Weight: Medium)**: Are there signals of willingness to pay, discussions of alternatives, or gaps in the market?
+
+5. **Technical Depth (Weight: Low)**: Is the discussion substantive enough to provide actionable insights?
+
+6. **Interest Match (Weight: High)**: How well does this thread match the user's specified interests?
+
+## Thread to Analyze
+
+**Title**: {title}
+**Type**: {story_type}
+**Score**: {score}
+**Comments**: {comment_count}
+
+**Story Text** (if any):
+{story_text}
+
+**Sample Comments**:
+{comments}
+
+## Response Format
+Respond with a JSON object containing:
+- "relevance_score": Integer from 1-10
+- "reasoning": Brief explanation (2-3 sentences)
+- "key_signals": List of specific signals found (pain points, feature requests, etc.)
+- "categories": List of relevant topic categories
+
+Example:
+```json
+{{
+  "relevance_score": 8,
+  "reasoning": "This thread discusses significant frustrations with current CI/CD tools and contains multiple expressions of willingness to pay for better solutions.",
+  "key_signals": ["frustration with Jenkins", "desire for simpler deployment", "would pay for hosted solution"],
+  "categories": ["developer tools", "DevOps", "infrastructure"]
+}}
+```

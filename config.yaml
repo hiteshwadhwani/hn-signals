@@ -1,0 +1,68 @@
+# Your areas of interest for filtering relevant content
+interests:
+  - developer tools
+  - API design
+  - automation
+  - SaaS
+  - productivity
+  - AI/ML applications
+  - infrastructure
+  - DevOps
+
+# Scraper settings
+scraper:
+  story_types:
+    - top
+    # - ask
+    # - show
+    # - best
+  # Number of stories to fetch per type
+  stories_per_type: 10
+  # Maximum comment tree depth
+  max_comment_depth: 5
+  # Minimum score threshold for stories (0 = no filter)
+  min_story_score: 10
+  # Request timeout in seconds
+  timeout: 10
+  # Delay between API calls (seconds) to respect rate limits
+  rate_limit_delay: 0.1
+
+# LLM settings
+llm:
+  # Provider: openai, anthropic, or ollama
+  provider: openai
+  # Model to use for filtering (cheaper model)
+  filter_model: gpt-4o-mini
+  # Model to use for insight extraction (more capable model)
+  extraction_model: gpt-4o
+  # Maximum tokens for extraction responses
+  max_tokens: 2000
+  # Temperature for generation (lower = more focused)
+  temperature: 0.3
+
+# Filter settings
+filter:
+  # Minimum relevance score (1-10) to keep a thread
+  min_relevance_score: 5
+  # Keywords that boost relevance
+  boost_keywords:
+    - "I wish"
+    - "I hate"
+    - "frustrating"
+    - "why doesn't"
+    - "would pay"
+    - "pain point"
+    - "every time I"
+    - "there should be"
+    - "nobody has built"
+  # Minimum number of comments to consider a thread
+  min_comments: 5
+
+# Database settings
+database:
+  path: data/hn_insights.db
+
+# Report settings
+reports:
+  output_dir: reports
+  top_insights: 20
